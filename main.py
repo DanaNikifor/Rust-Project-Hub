@@ -13,4 +13,4 @@ def massage_reader(massage):
 	if(massage.text == "Привет" or "привет" or "прив" or "Прив"):
 		bot.send_message(massage.chat.id, f"Привет, {massage.from_user.first_name}")
 
-bot.polling(none_stop=True)
+bot.polling(none_stop=True) 
