@@ -1,8 +1,7 @@
 import telebot
+import token
 
-token = "5834288580:AAFMzPdkQmwkI9pXwMKZqmJLq_S8nPue8q4"
-
-bot = telebot.TeleBot(token)
+bot = telebot.TeleBot(token.token)
 
 @bot.message_handler(commands=['start'])
 def start(massage):
@@ -16,4 +15,5 @@ def massage_reader(massage):
 		bot.send_message(massage.chat.id, f"{massage.from_user.first_name}, напиши привет")
 		print(massage.text)
 
-bot.polling(none_stop=True) 
+while True:
+	bot.polling() 
