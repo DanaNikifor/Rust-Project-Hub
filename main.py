@@ -1,7 +1,7 @@
 import telebot
-import token
+import Token
 
-bot = telebot.TeleBot(token.token)
+bot = telebot.TeleBot(Token.TOKEN)
 
 @bot.message_handler(commands=['start'])
 def start(massage):
