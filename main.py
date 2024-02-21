@@ -26,4 +26,4 @@ def massage_reader(massage):
 	print(massage.text)
 
 while True:
-	bot.polling() 
+	bot.polling()
