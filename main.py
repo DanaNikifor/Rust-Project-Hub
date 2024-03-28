@@ -27,3 +27,4 @@ def massage_reader(massage):
 
 while True:
 	bot.polling()
+# жопа
