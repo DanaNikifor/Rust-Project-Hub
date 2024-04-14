@@ -3,13 +3,13 @@
 Проект создан для развития начинающих программистов на языке Python
 ## Для запуска проекта
 **Из исходника:**
-`Python: 10 - 12`
-`pyTelegramBotAPI: 4.16.1`
-`Token.py`:
+- `Python: 10 - 12`
+- `pyTelegramBotAPI: 4.16.1`
+- `Token.py`:
 '''
 TOKEN = "Ваш_токен_из_бота_BotFather"
 '''
 **Из релиза:**
-`Ubuntu 22.04.4 LTS или Windows 10`
+- `Ubuntu 22.04.4 LTS или Windows 10`
 ## Лицензия
 Этот репозиторий использует лицензию [MIT](/LICENSE).
