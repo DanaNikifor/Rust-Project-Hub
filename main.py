@@ -5,6 +5,9 @@ import Token
 bot = telebot.TeleBot(Token.TOKEN)
 keys = ("Поздороваться", "Правила", "Проекты")
 projectsKeys = ("Простые", "Средние", "Сложные")
+ProjectsLow = ("Hello World", "Списки, картежи и словари", "Мини игра угадай, 'что я загадал?'")
+ProjectsMednum = ("Телеграм бот", "Компиляция в exe или в бинпрник", "Подключение других языков в код")
+ProjectsHard = ("Игра на PyGame", "Сайт с Django", "Android приложение на Python")
 
 @bot.message_handler(commands=['start'])
 def start(massage):
@@ -32,7 +35,12 @@ def massage_reader(massage):
 			text = f"Выбери сложность"
 			bot.send_message(massage.chat.id, text, reply_markup=mp)
 	elif(massage.text in projectsKeys):
-		bot.send_message(massage.chat.id, "Иди нахой")
+		if(massage.text == projectsKeys[0]):
+			pass
+		elif(massage.text == projectsKeys[1]):
+			pass
+		elif(massage.text == projectsKeys[2]):
+			pass
 	else:
 		bot.send_message(massage.chat.id, f"😠{massage.from_user.first_name}, используй кнопочки")
 	print(massage.text)
