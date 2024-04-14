@@ -1,4 +1,6 @@
-[Картинка проекта](https://i.ibb.co/9bBbwGK/image.jpg)
+<p align="center">
+<img scr="https://i.ibb.co/9bBbwGK/image.jpg" width=50>
+</p>
 # Хранилеще проектов на python
 ## Что делает проект
 Проект создан для развития начинающих программистов на языке Python<br>
