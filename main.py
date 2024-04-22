@@ -6,7 +6,7 @@ bot = telebot.TeleBot(Token.TOKEN)
 keys = ("Поздороваться", "Правила", "Проекты")
 projectsKeys = ("Простые", "Средние", "Сложные")
 ProjectsLow = ("Hello World", "Списки, картежи и словари", "Мини игра угадай, 'что я загадал?'")
-ProjectsMednum = ("Телеграм бот", "Компиляция в exe или в бинпрник", "Подключение других языков в код")
+ProjectsMednum = ("Телеграм бот", "Компиляция в exe или в бинарник", "Подключение других языков в код")
 ProjectsHard = ("Игра на PyGame", "Сайт с Django", "Android приложение на Python")
 
 @bot.message_handler(commands=['start'])
@@ -36,11 +36,11 @@ def massage_reader(massage):
 			bot.send_message(massage.chat.id, text, reply_markup=mp)
 	elif(massage.text in projectsKeys):
 		if(massage.text == projectsKeys[0]):
-			pass
+			bot.send_message(massage.chat.id, f"{ProjectsLow[0]}\n\n{ProjectsLow[1]}\n\n{ProjectsLow[2]}")
 		elif(massage.text == projectsKeys[1]):
-			pass
+			bot.send_message(massage.chat.id, f"{ProjectsMednum[0]}\n\n{ProjectsMednum[1]}\n\n{ProjectsMednum[2]}")
 		elif(massage.text == projectsKeys[2]):
-			pass
+			bot.send_message(massage.chat.id, f"{ProjectsHard[0]}\n\n{ProjectsHard[1]}\n\n{ProjectsHard[2]}")
 	else:
 		bot.send_message(massage.chat.id, f"😠{massage.from_user.first_name}, используй кнопочки")
 	print(massage.text)
