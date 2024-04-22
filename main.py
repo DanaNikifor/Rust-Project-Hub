@@ -3,7 +3,7 @@ from telebot import types
 import Token
 
 bot = telebot.TeleBot(Token.TOKEN)
-keys = ("Поздороваться", "Правила", "Проекты")
+keys = ("Поздороваться", "Правила", "Проекты", "Назад")
 projectsKeys = ("Простые", "Средние", "Сложные")
 ProjectsLow = ("Hello World", "Списки, картежи и словари", "Мини игра угадай, 'что я загадал?'")
 ProjectsMednum = ("Телеграм бот", "Компиляция в exe или в бинарник", "Подключение других языков в код")
@@ -31,16 +31,54 @@ def massage_reader(massage):
 			Low = types.KeyboardButton(projectsKeys[0])
 			Mednum = types.KeyboardButton(projectsKeys[1])
 			Hard = types.KeyboardButton(projectsKeys[2])
-			mp.add(Low, Mednum, Hard)
+			Back = types.KeyboardButton("Назад")
+			mp.add(Low, Mednum, Hard, Back)
 			text = f"Выбери сложность"
 			bot.send_message(massage.chat.id, text, reply_markup=mp)
+		elif massage.text == "Назад":
+			mp = types.ReplyKeyboardMarkup(resize_keyboard=True)
+			hello = types.KeyboardButton("Поздороваться")
+			projects = types.KeyboardButton("Проекты")
+			guide = types.KeyboardButton("Правила")
+			mp.add(hello,projects, guide)
+			bot.send_message(massage.chat.id, "Вы вернулись назад", parse_mode='html', reply_markup=mp)
 	elif(massage.text in projectsKeys):
 		if(massage.text == projectsKeys[0]):
-			bot.send_message(massage.chat.id, f"{ProjectsLow[0]}\n\n{ProjectsLow[1]}\n\n{ProjectsLow[2]}")
+			mpProjectLow = types.ReplyKeyboardMarkup(resize_keyboard=True)
+			Hello_World = types.KeyboardButton(ProjectsLow[0])
+			List = types.KeyboardButton(ProjectsLow[1])
+			Guess = types.KeyboardButton(ProjectsLow[2])
+			Back = types.KeyboardButton("Назад")
+			mpProjectLow.add(Hello_World, List, Guess, Back)
+			bot.send_message(massage.chat.id, f"Выберите проект", parse_mode='html', reply_markup=mpProjectLow)
 		elif(massage.text == projectsKeys[1]):
-			bot.send_message(massage.chat.id, f"{ProjectsMednum[0]}\n\n{ProjectsMednum[1]}\n\n{ProjectsMednum[2]}")
+			mpProjectMednum = types.ReplyKeyboardMarkup(resize_keyboard=True)
+			Telegram = types.KeyboardButton(ProjectsMednum[0])
+			Compilation = types.KeyboardButton(ProjectsMednum[1])
+			Other_languages = types.KeyboardButton(ProjectsMednum[2])
+			Back = types.KeyboardButton("Назад")
+			mpProjectMednum.add(Telegram, Compilation, Other_languages, Back)
+			bot.send_message(massage.chat.id, f"Выберите проект", parse_mode='html', reply_markup=mpProjectMednum)
 		elif(massage.text == projectsKeys[2]):
-			bot.send_message(massage.chat.id, f"{ProjectsHard[0]}\n\n{ProjectsHard[1]}\n\n{ProjectsHard[2]}")
+			mpProjectHard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+			Pygame = types.KeyboardButton(ProjectsHard[0])
+			Django = types.KeyboardButton(ProjectsHard[1])
+			Android = types.KeyboardButton(ProjectsHard[2])
+			Back = types.KeyboardButton("Назад")
+			mpProjectHard.add(Pygame, Django, Android, Back)
+			bot.send_message(massage.chat.id, f"Выберите проект", parse_mode='html', reply_markup=mpProjectHard)
+	elif(massage.text in ProjectsLow):
+		if(massage.text == ProjectsLow[0]):
+			bot.send_message(massage.chat.id, "Самая первая программа на языке Python:\n\n```python\nprint('Hello World')```", parse_mode="markdown")
+		elif(massage.text == ProjectsLow[1]):
+			bot.send_message(massage.chat.id, "Базовые коллекции в Python:\n\nСписки (lists)\n```python\nlist = [1, 2, 3, 4, 5]\nprint(list)\n```\nКортежи (tuples)(в отличие от списков, кортежи неизменяемы)\n```python\ntuple = (1, 2, 3, 4, 5)\nprint(tuple)\n```\nСловари (dictionaries)\n```python\ndictionary = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}\nprint(dictionary)\n```", parse_mode="markdown")
+		elif(massage.text == ProjectsLow[2]):
+			bot.send_message(massage.chat.id, "Мини игра угадай, 'что я загадал?'\n\n```python\nimport random\n\ndef main():\n	# Генерируем случайное число от 1 до 10\n    number = random.randint(1, 10)\n\n    # Даем пользователю три попытки угадать число\n    for i in range(3):\n        user_number = int(input('Введите число: '))\n        if user_number == number:\n            print('Ты выйграл!')\n            break\n        else:\n            print(f'Неверно, у тебя осталось {3 - i - 1} попыток')\n\nif __name__ == '__main__':\n    main()\n```", parse_mode="markdown")
+	elif(massage.text in ProjectsMednum):
+		if(massage.text == ProjectsMednum[0]):
+			bot.send_message(massage.chat.id, f"{ProjectsMednum[0]}\n\n{ProjectsMednum[1]}\n\n{ProjectsMednum[2]}")
+	elif(massage.text in ProjectsHard):
+		bot.send_message(massage.chat.id, f"{ProjectsHard[0]}\n\n{ProjectsHard[1]}\n\n{ProjectsHard[2]}")
 	else:
 		bot.send_message(massage.chat.id, f"😠{massage.from_user.first_name}, используй кнопочки")
 	print(massage.text)
