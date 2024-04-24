@@ -77,16 +77,16 @@ def massage_reader(massage):
 	elif(massage.text in ProjectsMednum):
 		if(massage.text == ProjectsMednum[0]):
 			bot.send_message(massage.chat.id, "Код для базового телеграм бота:\n\n```python\nimport telebot\n\nTOKEN = 'Токен_из_Bot_Father'\n\nbot = telebot.TeleBot(TOKEN)\n\n@bot.message_handler(commands=['start'])\ndef start(massage):\n    bot.send_message(massage.chat.id, 'Привет, я телеграм бот!')\n\nif __name__ == '__main__':\n    bot.polling()\n```", parse_mode="markdown")
-		if(massage.text == ProjectsMednum[1]):
+		elif(massage.text == ProjectsMednum[1]):
 			bot.send_message(massage.chat.id, "Компиляция в Python через pyinstaller:\n(Linux)\n```bash\npyinstaller -F имя_файла.py\n```\n(Windows)\n```bash\npyinstaller -F имя_файла.py\n```\nГде `имя_файла.py` - это имя файла который вы хотите скомпилировать,\n\n-F - это флаг который говорит о том что мы хотим создать один файл\n\nили через auto-py-to-exe(его надо только скачать и запустить)", parse_mode="markdown")
-		if(massage.text == ProjectsMednum[2]):
+		elif(massage.text == ProjectsMednum[2]):
 			bot.send_message(massage.chat.id, "Подключение других ЯП(На пример C++ на Windows):\n\nПишем библиотеку на C++:\n```cpp\n#include <iostream>\nusing namespace std;\n\nvoid printHello() {\n    cout << \"Hello C++\" << \"\\n\"\n}```\nКомпилируем:```bash\ng++ название_файла_C++ -o название_для_библеотеки.dll```\n\nИмпортируем библиотеку в Python:\n```python\nimport ctypes\nlib = ctypes.CDLL('назвыние_библиотеки_C++.dll')\nlib.printHello()\n```", parse_mode="markdown")
 	elif(massage.text in ProjectsHard):
 		if(massage.text == ProjectsHard[0]):
 			bot.send_message(massage.chat.id, "")
-		if(massage.text == ProjectsHard[1]):
+		elif(massage.text == ProjectsHard[1]):
 			bot.send_message(massage.chat.id, "")
-		if(massage.text == ProjectsHard[2]):
+		elif(massage.text == ProjectsHard[2]):
 			bot.send_message(massage.chat.id, "")
 	else:
 		bot.send_message(massage.chat.id, f"😠{massage.from_user.first_name}, используй кнопочки")
