@@ -83,11 +83,11 @@ def massage_reader(massage):
 			bot.send_message(massage.chat.id, "Подключение других ЯП(На пример C++ на Windows):\n\nПишем библиотеку на C++:\n```cpp\n#include <iostream>\nusing namespace std;\n\nvoid printHello() {\n    cout << \"Hello C++\" << \"\\n\"\n}```\nКомпилируем:```bash\ng++ название_файла_C++ -o название_для_библеотеки.dll```\n\nИмпортируем библиотеку в Python:\n```python\nimport ctypes\nlib = ctypes.CDLL('назвыние_библиотеки_C++.dll')\nlib.printHello()\n```", parse_mode="markdown")
 	elif(massage.text in ProjectsHard):
 		if(massage.text == ProjectsHard[0]):
-			bot.send_message(massage.chat.id, "")
+			bot.send_message(massage.chat.id, "Сам учи!😠")
 		elif(massage.text == ProjectsHard[1]):
-			bot.send_message(massage.chat.id, "")
+			bot.send_message(massage.chat.id, "Сам учи!😠")
 		elif(massage.text == ProjectsHard[2]):
-			bot.send_message(massage.chat.id, "")
+			bot.send_message(massage.chat.id, "Сам учи!😠")
 	else:
 		bot.send_message(massage.chat.id, f"😠{massage.from_user.first_name}, используй кнопочки")
 	print(massage.text)
