@@ -63,7 +63,7 @@ def massage_reader(massage):
 			bot.send_message(massage.chat.id, f"Выберите проект", parse_mode='html', reply_markup=mpProjectHard)
 	elif(massage.text in ProjectsLow):
 		if(massage.text == ProjectsLow[0]):
-			bot.send_message(massage.chat.id, "Компиляция проекта:\n\n```bash\nrustc файл.rs\n```\n после ввода команды вы получите файл с расширением .exe\n\n(Linux)\n```bash\n./название_файла\n```\n(Windows)\n```bash\nназвание_файла.exe\n```", parse_mode="markdown")
+			bot.send_message(massage.chat.id, "Компиляция проекта:\n\n```bash\nrustc файл.rs\n```\n после ввода команды вы получите файл с расширением .exe\n\n(Linux)\n```bash\n./название_файла\n```\n(Windows)\n```bash\nназвание_файла.exe\n```\n\nСкачать полный Rust для Linux:\nhttps://static.rust-lang.org/dist/rust-1.77.2-x86_64-unknown-linux-gnu.tar.xz", parse_mode="markdown")
 		if(massage.text == ProjectsLow[1]):
 			bot.send_message(massage.chat.id, "Самая первая программа на языке Rust:\n\n```rust\nfn main() {\n    println!(\"Hello World\");\n}\n```", parse_mode="markdown")
 		elif(massage.text == ProjectsLow[2]):
