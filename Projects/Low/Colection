@@ -1,0 +1,19 @@
+Базовые коллекции в Python:
+
+Списки (lists)
+```python
+list = [1, 2, 3, 4, 5]
+print(list)
+```
+
+Кортежи (tuples)(в отличие от списков, кортежи неизменяемы)
+```python
+tuple = (1, 2, 3, 4, 5)
+print(tuple)
+```
+
+Словари (dictionaries)
+```python
+dictionary = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}
+print(dictionary)
+```

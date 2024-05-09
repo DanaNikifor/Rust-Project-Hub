@@ -63,16 +63,21 @@ def massage_reader(massage):
 			bot.send_message(massage.chat.id, f"Выберите проект", parse_mode='html', reply_markup=mpProjectHard)
 	elif(massage.text in ProjectsLow):
 		if(massage.text == ProjectsLow[0]):
-			bot.send_message(massage.chat.id, "Компиляция проекта:\n\n```bash\nrustc файл.rs\n```\n после ввода команды вы получите файл с расширением .exe\n\n(Linux)\n```bash\n./название_файла\n```\n(Windows)\n```bash\nназвание_файла.exe\n```\n\nСкачать полный Rust для Linux:\nhttps://static.rust-lang.org/dist/rust-1.77.2-x86_64-unknown-linux-gnu.tar.xz", parse_mode="markdown")
+			with open("Projects/Low/Compilet.txt", "r", encoding='utf-8') as file:
+				bot.send_message(massage.chat.id, file.read(), parse_mode="markdown")
 		if(massage.text == ProjectsLow[1]):
-			bot.send_message(massage.chat.id, "Самая первая программа на языке Rust:\n\n```rust\nfn main() {\n    println!(\"Hello World\");\n}\n```", parse_mode="markdown")
+			with open("Projects/Low/Hello_World.txt", "r", encoding='utf-8') as file:
+				bot.send_message(massage.chat.id, file.read(), parse_mode="markdown")
 		elif(massage.text == ProjectsLow[2]):
-			bot.send_message(massage.chat.id, "Базовые коллекции в Rust:\n\nСписки (lists)\n```rust\nlet list = [1, 2, 3, 4, 5];\nprintln!(\"{:?}\", list);\n```\nКортежи (tuples)(в отличие от списков, кортежи неизменяемы)\n```rust\nlet tuple = (1, 2, 3, 4, 5);\nprintln!(\"{:?}\", tuple);\n```\nСловари (dictionaries)\n```rust\nlet dictionary = {\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"};\nprintln!(\"{:?}\", dictionary);\n```", parse_mode="markdown")
+			with open("Projects/Low/Lists.txt", "r", encoding='utf-8') as file:
+				bot.send_message(massage.chat.id, file.read(), parse_mode="markdown")
 	elif(massage.text in ProjectsMednum):
 		if(massage.text == ProjectsMednum[0]):
-			bot.send_message(massage.chat.id, "Калькулятор с пользовательским вводом на Rust:\n\n```rust\nfn main() {\n    let mut input = String::new();\n    std::io::stdin().read_line(&mut input).expect(\"Failed to read line\");\n    let input: u32 = input.trim().parse().expect(\"Please enter a valid number\");\n    println!(\"You entered: {}\", input);\n}\n```", parse_mode="markdown")
+			with open("Projects/Mednum/Calculator.txt", "r", encoding='utf-8') as file:
+				bot.send_message(massage.chat.id, file.read(), parse_mode="markdown")
 		elif(massage.text == ProjectsMednum[1]):
-			bot.send_message(massage.chat.id, "Мини игра угадай, 'что я загадал?' с вводом данных пользователя в консоль на Rust:\n\n```rust\nuse rand::Rng;\n\nfn main() {\n    println!(\"Я загадал число от 1 до 10, угадай\");\n    let secret_number = rand::thread_rng().gen_range(1..=100);\n    println!(\"Я загадал число: {}\", secret_number);\n}\n```", parse_mode="markdown")
+			with open("Projects/Mednum/MiniGame.txt", "r", encoding='utf-8') as file:
+				bot.send_message(massage.chat.id, file.read(), parse_mode="markdown")
 	elif(massage.text in ProjectsHard):
 		if(massage.text == ProjectsHard[0]):
 			bot.send_message(massage.chat.id, "Сам учи!😠")

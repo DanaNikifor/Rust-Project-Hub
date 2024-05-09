@@ -1,0 +1,26 @@
+Калькулятор(Сумматор) на Rust:
+```rust
+use std::io;
+
+fn main() {
+    // Создаем две переменные для хранения введенных пользователем строк
+    let mut input1 = String::new();
+    let mut input2 = String::new();
+
+    // Просим пользователя ввести первое число и считываем его в переменную input1
+    println!("Введите первое число: ");
+    io::stdin().read_line(&mut input1).expect("Failed to read line");
+
+    // Просим пользователя ввести второе число и считываем его в переменную input2
+    println!("Введите второе число: ");
+    io::stdin().read_line(&mut input2).expect("Failed to read line");
+
+    // Преобразуем введенные пользователем строки в числа и суммируем их
+    let num1: i32 = input1.trim().parse().unwrap();
+    let num2: i32 = input2.trim().parse().unwrap();
+    let sum = num1 + num2;
+
+    // Выводим результат на экран
+    println!("Сумма чисел {} и {} равна: {}", num1, num2, sum);
+}
+```
