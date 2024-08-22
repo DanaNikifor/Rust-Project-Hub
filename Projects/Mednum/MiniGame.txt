@@ -1,0 +1,30 @@
+Мини игра угадай, 'что я загадал?' на Rust:
+```Rust
+use std::io;
+use rand::Rng;
+
+fn main() {
+    let secret_number = rand::thread_rng().gen_range(1, 11);
+    let mut guess = String::new();
+    let mut attempts = 0;
+
+    println!("Угадай число от 1 до 10. У тебя 3 попытки.");
+
+    while attempts < 3 {
+        io::stdin().read_line(&mut guess).expect("Failed to read line");
+        let guess: u32 = guess.trim().parse().expect("Please type a number!"); 
+
+        if guess == secret_number {
+            println!("Поздравляю! Ты угадал число!"); 
+            break; 
+        } else { 
+            println!("Ты не угадал. Попробуй еще раз."); 
+            attempts += 1; 
+        }
+    }
+
+    if attempts == 3 { 
+        println!("Ты проиграл. Загаданное число было: {}", secret_number);
+    }
+}
+```

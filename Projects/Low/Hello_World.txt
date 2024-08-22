@@ -1,0 +1,7 @@
+Самая первая программа на языке Rust:
+
+```rust
+fn main() {
+    println!("Hello World");
+}
+```
